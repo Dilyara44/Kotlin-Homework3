@@ -44,23 +44,25 @@ fun agoToText(seconds: Int) {
 }
 
 fun countMinutes(seconds: Int) {
-    when (seconds) {
-        in 121..300, in 1321..1500, in 1921..2100, in 2521..2700, in 3121..3300
-        -> println("Был (а) в сети " + seconds / 60 + " минуты назад")
-        in 301..1260, in 1501..1860, in 2101..2460, in 2701..3060, in 3300..3600
-        -> println("Был (а) в сети " + seconds / 60 + " минут назад")
-        in 61..120, in 1261..1320, in 1861..1920, in 2461..2520, in 3061..3120
-        -> println("Был (а) в сети " + seconds / 60 + " минуту назад")
+    val minutes = seconds / 60
+    when (minutes) {
+        in 2..4, in 22..24, in 32..34, in 42..44, in 52..54
+        -> println("Был (а) в сети $minutes минуты назад")
+        in 5..20, in 25..30, in 35..40, in 45..50, in 55..60
+        -> println("Был (а) в сети $minutes минут назад")
+        1, 21, 31, 41, 51
+        -> println("Был (а) в сети $minutes минуту назад")
     }
 }
 
 fun countHours(seconds: Int) {
-    when (seconds) {
-        in 7201..18000, in 79201..86400
-        -> println("Был(а) в сети " + seconds / 3600 + " часа назад")
-        in 18001..75600
-        -> println("Был(а) в сети " + seconds / 3600 + " часов назад")
-        in 3601..7200, in 75601..79200
-        -> println("Был(а) в сети " + seconds / 3600 + " час назад")
+    val hours = seconds / 3600
+    when (hours) {
+        in 2..4, in 22..24
+        -> println("Был(а) в сети $hours часа назад")
+        in 5..20
+        -> println("Был(а) в сети $hours часов назад")
+        1, 21
+        -> println("Был(а) в сети $hours час назад")
     }
 }
